@@ -3,25 +3,43 @@ import React,{Component} from 'react'
 import { createStackNavigator,createAppContainer,createBottomTabNavigator,createMaterialTopTabNavigator } from 'react-navigation'
 import LoginScreen from '../screens/LoginScreen';
 import Register from '../screens/RegisterPage';
-import Pemesanan from '../screens/PemesananScree';
-import Order from '../screens/OrdersScreen';
+import EmployeeDetail from '../screens/EmployeeDetail';
+import EditEmployee from '../screens/EditEmployee';
+import MenuAccountSetting from '../screens/MenuAccountSetting'
 import Menu from '../screens/MenuStack';
-import MobilScreen from '../screens/MobilScreen';
+import AddEmployee from '../screens/AddEmployee';
+import ListEmployee from '../screens/ListEmployeeScreen'
 
-const TopTabRiwayat = createMaterialTopTabNavigator({
-    pemesanan : Pemesanan,
-    orders : Order
+const TopTabRiwayat = createStackNavigator({
+    menu : MenuAccountSetting,
+    // pemesanan : EmployeeDetail,
+   
 })
 
 const StackBeranda = createStackNavigator({
     MenuStack : Menu,
-    Mobil : MobilScreen,
+    add : AddEmployee,
+    edit : EditEmployee,
+    list : ListEmployee,
+    detail : EmployeeDetail
 
-})
-
+}, {headerMode:'none'})
+StackBeranda.navigationOptions=({navigation})=>{
+    let tabBarVisible = false
+    let routeName = navigation.state.routes[navigation.state.index].routeName
+    if(routeName==='MenuStack'){
+        tabBarVisible=true
+    }
+    return{
+        tabBarVisible
+    }
+}
 const HomeTab = createBottomTabNavigator({
-    beranda : StackBeranda,
-    riwayat : TopTabRiwayat
+    home : StackBeranda,
+    account : TopTabRiwayat
+},{
+    tabBarPosition :'bottom',
+    swipeEnabled : false
 }) 
 
 const StackRoot = createStackNavigator({
@@ -29,7 +47,8 @@ const StackRoot = createStackNavigator({
     register : Register,
     home : HomeTab
 },{
-    headerMode : 'none'
+    headerMode : 'none',
+    // initialRouteName:'home'
 })
 
 export const StackContainer = createAppContainer(StackRoot)
