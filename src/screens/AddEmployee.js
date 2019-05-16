@@ -6,25 +6,28 @@ import {connect} from 'react-redux'
 class AddEmployee extends Component {
     state ={selected : 'Mon'}
     onAddBtnClick = () => {
-      var db = Fire.database()
-      var employee = db.ref('manager/'+this.props.id+'/employee')
-
-      employee.push({
-          nama : this.inputNama,
-          telp : this.inputPhone,
-          shift : this.state.selected
-      })
-      .then((res) => {
-          console.log(res)
-        
-          alert('Add data Berhasil')
-      })
-      .catch((err) => {
-          console.log(err)
-      })
-    //  alert('masuk')
-
-
+      if(this.inputNama && this.inputPhone){
+        var db = Fire.database()
+        var employee = db.ref('manager/'+this.props.id+'/employee')
+  
+        employee.push({
+            nama : this.inputNama,
+            telp : this.inputPhone,
+            shift : this.state.selected
+        })
+        .then((res) => {
+            console.log(res)
+          
+            alert('Add data Berhasil')
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+  
+      }else{
+        alert('isi semua')
+      }
+   
   }
   render() {
     return (

@@ -71,6 +71,7 @@ import {
 } from "react-native";
 import { Fire } from '../support/firebase'
 import {connect} from 'react-redux'
+import Communications from 'react-native-communications';
 class EmployeeDetail extends Component {
   delete=(key)=>{
     // alert(key)
@@ -99,7 +100,11 @@ class EmployeeDetail extends Component {
         <Text>{getParam('phone')}</Text>
         <Text>{getParam('shift')}</Text>
         <Button title='Delete Employee' onPress={()=>this.deleteEmployee(getParam('key'), getParam('nama'))}>
-          {/* <Text>Delete Employee</Text> */}
+       
+        </Button>
+        <Button title='Send SMS' onPress={()=>Communications.text(getParam('phone'), `Hello ${getParam('nama')},
+Your upcoming shift is on ${getParam('shift')}`)}>
+       
         </Button>
       </View>
     );

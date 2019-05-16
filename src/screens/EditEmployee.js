@@ -93,9 +93,17 @@ import { connect } from 'react-redux';
                     
                     </Right>
             </Item>
-            <Button block style={{ marginTop:20, marginHorizontal:10}} onPress={this.onBtnSave}>
-            <Text>Save</Text>
-          </Button>  
+{
+  this.state.selectedId ?
+  <Button  block style={{ marginTop:20, marginHorizontal:10}} onPress={this.onBtnSave}>
+  <Text>Save</Text>
+</Button>  
+:
+<Button disabled block style={{ marginTop:20, marginHorizontal:10}} onPress={this.onBtnSave}>
+<Text>Save</Text>
+</Button>  
+
+}
          
           </Form>
         </Content>

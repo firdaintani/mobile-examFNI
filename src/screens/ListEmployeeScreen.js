@@ -4,9 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import { Fire } from '../support/firebase'
 import { connect } from 'react-redux';
 class ListEmployee extends Component {
-    state={ data :[]
-
-    }
+    state={ data :[]}
     componentDidMount(){
       this.getData()
     }
