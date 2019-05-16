@@ -20,34 +20,14 @@ import { connect } from 'react-redux';
   }
 
   onBtnSave=()=>{
-    var nama = ''
-    var telp = ''
-    var shift = ''
-      if(this.inputNama){
-        nama = this.inputNama
-      }else{
-        nama =this.state.data[this.state.selectedId].nama
-      }
-
-      if(this.inputTelp){
-        telp = this.inputTelp
-      }else{
-        telp =this.state.data[this.state.selectedId].telp
-      }
-      if(this.state.selected!==''){
-    
-        shift = this.state.selected
-      }else{
-        
-        shift =this.state.data[this.state.selectedId].shift
-      }
+   
      Fire.database().ref('manager/'+this.props.id+'/employee/'+this.state.selectedId).set({
-        nama : nama,
-        telp:telp,
-        shift:shift
+        nama : this.inputNama?this.inputNama:this.state.data[this.state.selectedId].nama,
+        telp:this.inputTelp?this.inputTelp:this.state.data[this.state.selectedId].telp,
+        shift:this.state.selected?this.state.selected:this.state.data[this.state.selectedId].shift
     })
     .then((res)=>{
-      this.setState({selected:''})
+      this.setState({selected:'', selectedId:null})
         alert('data berhasil diedit')
       
     })

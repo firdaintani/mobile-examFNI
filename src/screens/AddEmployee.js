@@ -17,7 +17,7 @@ class AddEmployee extends Component {
       .then((res) => {
           console.log(res)
         
-          alert('Data Berhasil')
+          alert('Add data Berhasil')
       })
       .catch((err) => {
           console.log(err)

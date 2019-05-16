@@ -7,10 +7,20 @@ import { Fire } from '../support/firebase'
 import { onLoginSuccess } from '../2. actions'
 import { StackActions, NavigationActions } from 'react-navigation';
 
-
 class LoginScreen extends Component {
-  state = {loading : false, error : ''}
-
+  state = {loading : false, error : '', loading2 : true}
+  componentDidMount(){
+    Fire.auth().onAuthStateChanged((user)=>{
+      if(user){
+        this.props.onLoginSuccess(user.email, user.uid)
+      
+        this.setState({loading2:false})
+  
+      }else{
+        this.setState({loading2:false})
+      }
+    })
+  }
   onLogin=()=>{
     this.setState({loading:true})
     var email = this.inputEmail
@@ -43,6 +53,13 @@ class LoginScreen extends Component {
     
     }
   render() {
+    if(this.state.loading2){
+      return (
+        <View style={{justifyContent:'center', flex:1}}>
+          <ActivityIndicator size='large' color='black' />
+        </View>
+      )
+    }
     return (
       <Container>
         <Header>
