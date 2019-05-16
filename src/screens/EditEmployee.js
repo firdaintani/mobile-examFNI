@@ -72,7 +72,7 @@ import { connect } from 'react-redux';
                     <Text>Select data</Text>
                 </View>
                 <View>
-                    <Picker mode='dropdown' style={{width:120}} selectedValue={this.state.selectedId} onValueChange={(value)=>this.setState({selectedId:value})}>
+                    <Picker mode='dropdown' style={{width:120}} selectedValue={this.state.selectedId} onValueChange={(value)=>this.setState({selectedId:value, selected:''})}>
                     <Picker.Item label='Select Name' value={null}/>
 
                  {

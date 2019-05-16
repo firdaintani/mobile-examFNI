@@ -65,7 +65,7 @@ class AddEmployee extends Component {
             <Text>Add Employee</Text>
          
           </Button>  
-          <Text>{this.props.id}</Text>
+          {/* <Text>{this.props.id}</Text> */}
           </Form>
         </Content>
       </Container>
