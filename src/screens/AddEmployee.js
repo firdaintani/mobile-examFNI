@@ -4,7 +4,7 @@ import { Fire } from '../support/firebase'
 import {connect} from 'react-redux'
 
 class AddEmployee extends Component {
-    state ={selected : 'Mon'}
+    state ={selected : 'Monday'}
     onAddBtnClick = () => {
       if(this.inputNama && this.inputPhone){
         var db = Fire.database()
@@ -52,13 +52,13 @@ class AddEmployee extends Component {
                     <Label>Select Day</Label>
                 </Left>
                 <Right>
-                    <Picker mode="dropdown" style={{ width:120}} selectedValue={this.state.selected}
+                    <Picker mode="dropdown" style={{ width:230}} selectedValue={this.state.selected}
               onValueChange={(value)=>this.setState({selected:value})}>
-                            <Picker.Item label='Mon' value='Mon'/>
-                            <Picker.Item label='Tue' value='Tue'/>
-                            <Picker.Item label='Wed' value='Wed'/>
-                            <Picker.Item label='Thru' value='Thru'/>
-                            <Picker.Item label='Fri' value='Fri'/>
+                            <Picker.Item label='Monday' value='Monday'/>
+                            <Picker.Item label='Tuesday' value='Tuesday'/>
+                            <Picker.Item label='Wednesday' value='Wednesday'/>
+                            <Picker.Item label='Thursday' value='Thursday'/>
+                            <Picker.Item label='Friday' value='Friday'/>
 
                         </Picker>
                     

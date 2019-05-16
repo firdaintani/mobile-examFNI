@@ -81,13 +81,13 @@ import { connect } from 'react-redux';
                     <Label>Select Day</Label>
                 </Left>
                 <Right>
-                    <Picker mode="dropdown" style={{ width:200}} selectedValue={(this.state.selected &&this.state.selectedId) ?this.state.selected : (this.state.selectedId&& this.state.selected==='') ? this.state.data[this.state.selectedId].shift : null}
+                    <Picker mode="dropdown" style={{ width:230}} selectedValue={(this.state.selected &&this.state.selectedId) ?this.state.selected : (this.state.selectedId&& this.state.selected==='') ? this.state.data[this.state.selectedId].shift : null}
               onValueChange={(value)=>this.setState({selected:value})}>
-                            <Picker.Item label='Mon' value='Mon'/>
-                            <Picker.Item label='Tue' value='Tue'/>
-                            <Picker.Item label='Wed' value='Wed'/>
-                            <Picker.Item label='Thru' value='Thru'/>
-                            <Picker.Item label='Fri' value='Fri'/>
+                             <Picker.Item label='Monday' value='Monday'/>
+                            <Picker.Item label='Tuesday' value='Tuesday'/>
+                            <Picker.Item label='Wednesday' value='Wednesday'/>
+                            <Picker.Item label='Thursday' value='Thursday'/>
+                            <Picker.Item label='Friday' value='Friday'/>
 
                         </Picker>
                     

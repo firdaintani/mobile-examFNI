@@ -7,6 +7,7 @@ import {
 
 class Menu extends Component {
     render() {
+        console.disableYellowBox=true
         return (
             <View style={styles.container}>
                <View style={{flexDirection:'row', justifyContent:'space-between', marginTop:100, marginHorizontal:20}}>
